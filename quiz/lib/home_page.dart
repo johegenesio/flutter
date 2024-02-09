@@ -3,22 +3,28 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz/quiz.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key, required String title});
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        shadowColor: Colors.black,
+        elevation: 0,
+        backgroundColor: Colors.white,
         title: Text('Quiz',
             style: GoogleFonts.ibmPlexMono(
-                fontSize: 20, fontWeight: FontWeight.w400)),
+                fontSize: 20,
+                fontWeight: FontWeight.w400,
+                color: const Color(0xDD303030))),
         centerTitle: false,
         actions: const [Icon(Icons.search)],
       ),
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.fromLTRB(16, 16, 8, 32),
             child: Text('Desafie \nsua mente',
                 style: GoogleFonts.delaGothicOne(fontSize: 40)),
           ),
@@ -71,7 +77,7 @@ class HomePage extends StatelessWidget {
                       ],
                     )),
                 Container(
-                    margin: const EdgeInsets.all(8),
+                    margin: const EdgeInsets.fromLTRB(8, 8, 16, 8),
                     padding: const EdgeInsets.fromLTRB(8, 8, 16, 8),
                     decoration: BoxDecoration(
                         color: Colors.grey[300],
@@ -88,99 +94,127 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.all(16),
+            margin: const EdgeInsets.fromLTRB(16, 16, 16, 8),
             height: 300,
             width: double.infinity,
             child: GestureDetector(
-              onTap: () =>
-                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => const Quiz())),
+              onTap: () => Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (_) => const Quiz())),
               child: Card(
-                  color: Colors.grey[300],
-                  elevation: 0,
-                  child: Column(children: [
-                    Image.asset('assets/golfinho.png', width: 150, height: 150),
-                    Text(
-                      'Mostre seu conhecimento \nmarítimo',
-                      style: GoogleFonts.delaGothicOne(color: Colors.black),
-                    ),
-                    ListTile(
-                      leading:
-                          const Icon(Icons.star, color: Colors.amberAccent),
-                      title: Text(
-                        '1500 pontos',
-                        style: GoogleFonts.ibmPlexMono(
-                            fontSize: 16, fontWeight: FontWeight.w400),
-                      ),
-                    )
-                  ])),
-            ),
-          ),
-          SizedBox(
-            height: 200,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                Container(
-                  margin: const EdgeInsets.all(16),
-                  height: 220,
-                  width: 200,
-                  child: Card(
-                    color: Colors.grey[300],
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8),
-                          child: Image.asset(
-                            '',
-                            width: 50,
-                            height: 50,
-                          ),
-                        ),
-                        Text('Mostre seu conhecimento \nter',
-                            style:
-                                GoogleFonts.delaGothicOne(color: Colors.black)),
-                        ListTile(
-                          leading: const Icon(
-                            Icons.star,
-                            color: Colors.amberAccent,
-                          ),
-                          title: Text(
-                            '1500 pontos',
-                            style: GoogleFonts.ibmPlexMono(
-                                fontSize: 16, fontWeight: FontWeight.w400),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.all(8),
-                  height: 100,
-                  width: 200,
+                color: Colors.grey[300],
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(24, 8, 24, 8),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(8),
+                        padding: const EdgeInsets.all(16),
                         child: Image.asset(
-                          '',
-                          width: 50,
-                          height: 50,
+                          'assets/golfinho.png',
+                          width: 150,
+                          height: 150,
                         ),
                       ),
-                      Text('Mostre seus conhecimentos \naéreo',
-                          style:
-                              GoogleFonts.delaGothicOne(color: Colors.black)),
+                      Text(
+                        'Mostre seu conhecimento maritímo',
+                        style: GoogleFonts.delaGothicOne(color: Colors.black, fontSize: 16),
+                        textAlign: TextAlign.center,
+                      ),
                       ListTile(
                         leading:
                             const Icon(Icons.star, color: Colors.amberAccent),
-                        title: Text('1200 pontos',
+                        title: Text('1500 pontos',
                             style: GoogleFonts.ibmPlexMono(
                                 fontSize: 16, fontWeight: FontWeight.w400)),
                       )
                     ],
                   ),
-                )
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 240,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                Container(
+                    margin: const EdgeInsets.fromLTRB(16, 0, 4, 16),
+                    height: double.infinity,
+                    width: 240,
+                    child: Card(
+                      color: Colors.grey[300],
+                      child: Padding(
+                        padding: const EdgeInsets.all(8),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(16),
+                              child: Image.asset(
+                                'assets/sapo.png',
+                                width: 50,
+                                height: 50,
+                              ),
+                            ),
+                            Text(
+                              'Mostre seu conhecimento terrestre',
+                              style: GoogleFonts.delaGothicOne(
+                                  color: Colors.black, fontSize: 14),
+                              textAlign: TextAlign.center,
+                            ),
+                            ListTile(
+                              leading: const Icon(Icons.star,
+                                  color: Colors.amberAccent),
+                              title: Text('1500 pontos',
+                                  style: GoogleFonts.ibmPlexMono(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400)),
+                            )
+                          ],
+                        ),
+                      ),
+                    )),
+                Container(
+                    margin: const EdgeInsets.fromLTRB(4, 0, 16, 16),
+                    height: double.infinity,
+                    width: 240,
+                    child: Card(
+                      color: Colors.grey[300],
+                      child: Padding(
+                        padding: const EdgeInsets.all(8),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(16),
+                              child: Image.asset(
+                                'assets/passaro.png',
+                                width: 50,
+                                height: 50,
+                              ),
+                            ),
+                            Text(
+                              'Mostre seu conhecimento aéreo',
+                              style: GoogleFonts.delaGothicOne(
+                                  color: Colors.black, fontSize: 14),
+                              textAlign: TextAlign.center,
+                            ),
+                            ListTile(
+                              leading: const Icon(Icons.star,
+                                  color: Colors.amberAccent),
+                              title: Text('1200 pontos',
+                                  style: GoogleFonts.ibmPlexMono(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400)),
+                            )
+                          ],
+                        ),
+                      ),
+                    ))
               ],
             ),
           )
