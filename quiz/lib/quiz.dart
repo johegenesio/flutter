@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quiz/home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quiz/result_page.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -82,12 +82,7 @@ class _QuizState extends State<Quiz> {
         if (currentQuestionIndex < questions.length - 1) {
           currentQuestionIndex++;
         } else {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ResultPage(point: point),
-            ),
-          );
+          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (_)=> ResultPage(point: point) ), (route) => false);
         }
       });
     });
@@ -108,7 +103,7 @@ class _QuizState extends State<Quiz> {
             padding: const EdgeInsets.all(24),
             color: Colors.grey[100],
             width: double.infinity,
-            height: MediaQuery.of(context).size.height * 0.65,
+            height: MediaQuery.of(context).size.height * 0.5,
             child: Center(
               child: Text(
                 currentQuestion['question'],
@@ -124,6 +119,7 @@ class _QuizState extends State<Quiz> {
             Color? buttonColor;
             if (isSelected) {
               buttonColor = isCorrect! ? Colors.green : Colors.red;
+              isCorrect! ? point++ : null;
             } else {
               buttonColor = Colors.grey[800];
             }
@@ -151,43 +147,3 @@ Widget meuBtn(String resposta, VoidCallback onPressed, Color? color) =>
         ),
       ),
     );
-
-class ResultPage extends StatelessWidget {
-  final int point;
-  const ResultPage({Key? key, required this.point}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Resultados do Quiz'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Parabéns! Você concluiu o quiz!',
-              style:
-                  GoogleFonts.delaGothicOne(color: Colors.black, fontSize: 24),
-              textAlign: TextAlign.center,
-            ),
-            Text('Você Acertou: $point'),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        const HomePage(), // Navegue para a HomePage
-                  ),
-                );
-              },
-              child: const Text('Ir para a HomePage'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}

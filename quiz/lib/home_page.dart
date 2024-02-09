@@ -9,6 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      drawer: const Drawer(),
       appBar: AppBar(
         shadowColor: Colors.black,
         elevation: 0,
@@ -18,15 +19,31 @@ class HomePage extends StatelessWidget {
                 fontSize: 20,
                 fontWeight: FontWeight.w400,
                 color: const Color(0xDD303030))),
-        centerTitle: false,
-        actions: const [Icon(Icons.search)],
+        centerTitle: true,
+        actions: const [
+          Icon(Icons.search),
+          SizedBox(
+            width: 10,
+          )
+        ],
       ),
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(16, 16, 8, 32),
-            child: Text('Desafie \nsua mente',
-                style: GoogleFonts.delaGothicOne(fontSize: 40)),
+            padding: const EdgeInsets.fromLTRB(16, 32, 8, 40),
+            child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start, // Ajuste conforme necessário
+            children: [
+              Text(
+                'Desafie \nsua mente',
+                style: GoogleFonts.delaGothicOne(fontSize: 40),
+                ),
+              Text(
+                'Exercite à sua mente',
+                style: GoogleFonts.ibmPlexMono(fontSize: 16, fontWeight: FontWeight.w400),
+                ),
+              ],
+            ),
           ),
           SizedBox(
             height: 60,
@@ -95,7 +112,7 @@ class HomePage extends StatelessWidget {
           ),
           Container(
             margin: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-            height: 300,
+            height: 320,
             width: double.infinity,
             child: GestureDetector(
               onTap: () => Navigator.of(context)
@@ -103,7 +120,7 @@ class HomePage extends StatelessWidget {
               child: Card(
                 color: Colors.grey[300],
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(24, 8, 24, 8),
+                  padding: const EdgeInsets.all(8),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -118,7 +135,8 @@ class HomePage extends StatelessWidget {
                       ),
                       Text(
                         'Mostre seu conhecimento maritímo',
-                        style: GoogleFonts.delaGothicOne(color: Colors.black, fontSize: 16),
+                        style: GoogleFonts.delaGothicOne(
+                            color: Colors.black, fontSize: 16),
                         textAlign: TextAlign.center,
                       ),
                       ListTile(
