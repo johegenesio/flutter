@@ -23,25 +23,34 @@ class HomePage extends StatelessWidget {
         actions: const [
           Icon(Icons.search),
           SizedBox(
-            width: 10,
+            width: 16,
           )
         ],
       ),
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(16, 32, 8, 40),
+            padding: const EdgeInsets.fromLTRB(16, 40, 8, 40),
             child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start, // Ajuste conforme necessário
-            children: [
-              Text(
-                'Desafie \nsua mente',
-                style: GoogleFonts.delaGothicOne(fontSize: 40),
+              crossAxisAlignment:
+                  CrossAxisAlignment.start, // Ajuste conforme necessário
+              children: [
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8), 
+                      child: Text(
+                        'Desafie\nsua mente',
+                        style: GoogleFonts.delaGothicOne(fontSize: 40, height: 0.9),
+                      ),
+                    ),
+                  ],
                 ),
-              Text(
-                'Exercite à sua mente',
-                style: GoogleFonts.ibmPlexMono(fontSize: 16, fontWeight: FontWeight.w400),
-                ),
+                Text(
+                      'Exercite à sua mente',
+                      style: GoogleFonts.ibmPlexMono(
+                          fontSize: 16, fontWeight: FontWeight.w400),
+                    ),
               ],
             ),
           ),
