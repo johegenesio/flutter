@@ -9,7 +9,42 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      drawer: const Drawer(),
+      drawer: Drawer(
+        shape: ShapeBorder.lerp(InputBorder.none, LinearBorder.none, 0),
+        elevation: 0,
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: const BoxDecoration(
+                color: Colors.amberAccent,
+              ),
+              child: Text(
+                'Perfil',
+                style: GoogleFonts.delaGothicOne(fontSize: 24),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.message,
+                color: Colors.black,
+              ),
+              title: Text('Messages', style: GoogleFonts.ibmPlexMono(),),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: const Icon(Icons.account_circle),
+              title: Text('Profile', style: GoogleFonts.ibmPlexMono(),),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: Text('Settings', style: GoogleFonts.ibmPlexMono(),),
+              onTap: () {},
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         shadowColor: Colors.black,
         elevation: 0,
@@ -38,19 +73,20 @@ class HomePage extends StatelessWidget {
                 Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 8), 
+                      padding: const EdgeInsets.only(bottom: 8),
                       child: Text(
                         'Desafie\nsua mente',
-                        style: GoogleFonts.delaGothicOne(fontSize: 40, height: 0.9),
+                        style: GoogleFonts.delaGothicOne(
+                            fontSize: 40, height: 0.9),
                       ),
                     ),
                   ],
                 ),
                 Text(
-                      'Exercite à sua mente',
-                      style: GoogleFonts.ibmPlexMono(
-                          fontSize: 16, fontWeight: FontWeight.w400),
-                    ),
+                  'Exercite à sua mente',
+                  style: GoogleFonts.ibmPlexMono(
+                      fontSize: 16, fontWeight: FontWeight.w400),
+                ),
               ],
             ),
           ),
@@ -71,7 +107,7 @@ class HomePage extends StatelessWidget {
                     children: [
                       Text('Todos',
                           style: GoogleFonts.ibmPlexMono(
-                              fontSize: 16, fontWeight: FontWeight.w600)),
+                              fontWeight: FontWeight.w500)),
                     ],
                   ),
                 ),
@@ -79,13 +115,18 @@ class HomePage extends StatelessWidget {
                     margin: const EdgeInsets.all(8),
                     padding: const EdgeInsets.fromLTRB(8, 8, 16, 8),
                     decoration: BoxDecoration(
-                        color: Colors.black,
+                        color: Colors.amberAccent,
                         borderRadius: BorderRadius.circular(50)),
                     child: Row(
                       children: [
-                        Image.asset('assets/patas.png', width: 50, height: 50),
+                        Image.asset(
+                          'assets/patas.png',
+                          width: 50,
+                          height: 50,
+                          color: Colors.black,
+                        ),
                         Text('Animais',
-                            style: GoogleFonts.ibmPlexMono(color: Colors.white))
+                            style: GoogleFonts.ibmPlexMono(color: Colors.black))
                       ],
                     )),
                 Container(
@@ -96,8 +137,12 @@ class HomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(50)),
                     child: Row(
                       children: [
-                        Image.asset('assets/planeta.png',
-                            width: 50, height: 50),
+                        Image.asset(
+                          'assets/planeta.png',
+                          width: 50,
+                          height: 50,
+                          color: Colors.black,
+                        ),
                         Text('Astrologia',
                             style: GoogleFonts.ibmPlexMono(color: Colors.black))
                       ],
@@ -110,8 +155,12 @@ class HomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(50)),
                     child: Row(
                       children: [
-                        Image.asset('assets/smartphones.png',
-                            width: 50, height: 50),
+                        Image.asset(
+                          'assets/smartphones.png',
+                          width: 50,
+                          height: 50,
+                          color: Colors.black,
+                        ),
                         Text('Tecnologia',
                             style: GoogleFonts.ibmPlexMono(color: Colors.black))
                       ],
@@ -127,7 +176,8 @@ class HomePage extends StatelessWidget {
               onTap: () => Navigator.of(context)
                   .push(MaterialPageRoute(builder: (_) => const Quiz())),
               child: Card(
-                color: Colors.grey[300],
+                elevation: 0,
+                color: Colors.grey[200],
                 child: Padding(
                   padding: const EdgeInsets.all(8),
                   child: Column(
@@ -149,8 +199,7 @@ class HomePage extends StatelessWidget {
                         textAlign: TextAlign.center,
                       ),
                       ListTile(
-                        leading:
-                            const Icon(Icons.star, color: Colors.amberAccent),
+                        leading: const Icon(Icons.star, color: Colors.amber),
                         title: Text('1500 pontos',
                             style: GoogleFonts.ibmPlexMono(
                                 fontSize: 16, fontWeight: FontWeight.w400)),
@@ -171,7 +220,8 @@ class HomePage extends StatelessWidget {
                     height: double.infinity,
                     width: 240,
                     child: Card(
-                      color: Colors.grey[300],
+                      elevation: 0,
+                      color: Colors.grey[200],
                       child: Padding(
                         padding: const EdgeInsets.all(8),
                         child: Column(
@@ -193,8 +243,8 @@ class HomePage extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                             ListTile(
-                              leading: const Icon(Icons.star,
-                                  color: Colors.amberAccent),
+                              leading:
+                                  const Icon(Icons.star, color: Colors.amber),
                               title: Text('1500 pontos',
                                   style: GoogleFonts.ibmPlexMono(
                                       fontSize: 16,
@@ -209,7 +259,8 @@ class HomePage extends StatelessWidget {
                     height: double.infinity,
                     width: 240,
                     child: Card(
-                      color: Colors.grey[300],
+                      elevation: 0,
+                      color: Colors.grey[200],
                       child: Padding(
                         padding: const EdgeInsets.all(8),
                         child: Column(
@@ -231,8 +282,8 @@ class HomePage extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                             ListTile(
-                              leading: const Icon(Icons.star,
-                                  color: Colors.amberAccent),
+                              leading:
+                                  const Icon(Icons.star, color: Colors.amber),
                               title: Text('1200 pontos',
                                   style: GoogleFonts.ibmPlexMono(
                                       fontSize: 16,
