@@ -96,7 +96,7 @@ class HomePage extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               children: [
                 Container(
-                  margin: const EdgeInsets.fromLTRB(16, 8, 8, 8),
+                    margin: const EdgeInsets.fromLTRB(16, 8, 8, 8),
                   padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
                   decoration: BoxDecoration(
                       color: Colors.grey[300],

@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -14,6 +18,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int paginaAtual = 0;
+
   List paginas = [
     const Home(),
     const Text('CARRINHO'),
@@ -187,32 +192,52 @@ class Home extends StatelessWidget {
                 children: const [
                   Produtos(
                       nomeDoProduto:
+<<<<<<< Updated upstream
                           'Notebook Predator Helios Neo PHN16-71-76PL Ci7 13° Windows 11 Home 16GB 512GB SSD RTX 4050 16” WUXGA',
+=======
+                          'Notebook Predator Helios Neo PHN16-71-76PL',
+                      preco: '999',
+<<<<<<< Updated upstream
+                          'Notebook Predator Helios Neo PHN16-71-76PL Ci7 13° Windows 11 Home 16GB 512GB SSD RTX 4050 16” WUXGA',
+=======
+                          'Notebook Predator Helios Neo PHN16-71-76PL',
+>>>>>>> Stashed changes
                       preco: '999',
                       imageProduto: '/note.jpg'),
                   Produtos(
                       nomeDoProduto:
+<<<<<<< Updated upstream
                           'Notebook Predator Helios Neo PHN16-71-76PL Ci7 13° Windows 11 Home 16GB 512GB SSD RTX 4050 16” WUXGA',
+=======
+                          'Notebook Predator Helios Neo PHN16-71-76PL',
+>>>>>>> Stashed changes
                       preco: '999',
                       imageProduto: '/note.jpg'),
                   Produtos(
                       nomeDoProduto:
+<<<<<<< Updated upstream
                           'Notebook Predator Helios Neo PHN16-71-76PL Ci7 13° Windows 11 Home 16GB 512GB SSD RTX 4050 16” WUXGA',
+=======
+                          'Notebook Predator Helios Neo PHN16-71-76PL',
+>>>>>>> Stashed changes
                       preco: '999',
                       imageProduto: '/note.jpg'),
                   Produtos(
                       nomeDoProduto:
+<<<<<<< Updated upstream
                           'Notebook Predator Helios Neo PHN16-71-76PL Ci7 13° Windows 11 Home 16GB 512GB SSD RTX 4050 16” WUXGA',
+=======
+                          'Notebook Predator Helios Neo PHN16-71-76PL',
+>>>>>>> Stashed changes
                       preco: '999',
                       imageProduto: '/note.jpg'),
                   Produtos(
                       nomeDoProduto:
+<<<<<<< Updated upstream
                           'Notebook Predator Helios Neo PHN16-71-76PL Ci7 13° Windows 11 Home 16GB 512GB SSD RTX 4050 16” WUXGA',
-                      preco: '999',
-                      imageProduto: '/note.jpg'),
-                  Produtos(
-                      nomeDoProduto:
-                          'Notebook Predator Helios Neo PHN16-71-76PL Ci7 13° Windows 11 Home 16GB 512GB SSD RTX 4050 16” WUXGA',
+=======
+                          'Notebook Predator Helios Neo PHN16-71-76PL',
+>>>>>>> Stashed changes
                       preco: '999',
                       imageProduto: '/note.jpg'),
                 ],
@@ -253,32 +278,56 @@ class Home extends StatelessWidget {
                 children: const [
                   Produtos(
                       nomeDoProduto:
+<<<<<<< Updated upstream
                           'Notebook Predator Helios Neo PHN16-71-76PL Ci7 13° Windows 11 Home 16GB 512GB SSD RTX 4050 16” WUXGA',
+=======
+                          'Notebook Predator Helios Neo PHN16-71-76PL',
+>>>>>>> Stashed changes
                       preco: '999',
                       imageProduto: '/note.jpg'),
                   Produtos(
                       nomeDoProduto:
+<<<<<<< Updated upstream
                           'Notebook Predator Helios Neo PHN16-71-76PL Ci7 13° Windows 11 Home 16GB 512GB SSD RTX 4050 16” WUXGA',
+=======
+                          'Notebook Predator Helios Neo PHN16-71-76PL',
+>>>>>>> Stashed changes
                       preco: '999',
                       imageProduto: '/note.jpg'),
                   Produtos(
                       nomeDoProduto:
+<<<<<<< Updated upstream
                           'Notebook Predator Helios Neo PHN16-71-76PL Ci7 13° Windows 11 Home 16GB 512GB SSD RTX 4050 16” WUXGA',
+=======
+                          'Notebook Predator Helios Neo PHN16-71-76PL',
+>>>>>>> Stashed changes
                       preco: '999',
                       imageProduto: '/note.jpg'),
                   Produtos(
                       nomeDoProduto:
+<<<<<<< Updated upstream
                           'Notebook Predator Helios Neo PHN16-71-76PL Ci7 13° Windows 11 Home 16GB 512GB SSD RTX 4050 16” WUXGA',
+=======
+                          'Notebook Predator Helios Neo PHN16-71-76PL',
+>>>>>>> Stashed changes
                       preco: '999',
                       imageProduto: '/note.jpg'),
                   Produtos(
                       nomeDoProduto:
+<<<<<<< Updated upstream
                           'Notebook Predator Helios Neo PHN16-71-76PL Ci7 13° Windows 11 Home 16GB 512GB SSD RTX 4050 16” WUXGA',
+=======
+                          'Notebook Predator Helios Neo PHN16-71-76PL',
+>>>>>>> Stashed changes
                       preco: '999',
                       imageProduto: '/note.jpg'),
                   Produtos(
                       nomeDoProduto:
+<<<<<<< Updated upstream
                           'Notebook Predator Helios Neo PHN16-71-76PL Ci7 13° Windows 11 Home 16GB 512GB SSD RTX 4050 16” WUXGA',
+=======
+                          'Notebook Predator Helios Neo PHN16-71-76PL',
+>>>>>>> Stashed changes
                       preco: '999',
                       imageProduto: '/note.jpg'),
                 ],
@@ -296,6 +345,10 @@ class Categoria extends StatelessWidget {
       {super.key, required this.imageAssets, required this.textLabel});
 
   final String imageAssets;
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
   final String textLabel;
 
   @override
@@ -313,7 +366,11 @@ class Categoria extends StatelessWidget {
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
+<<<<<<< Updated upstream
                       blurRadius: 2, color: Colors.black12, spreadRadius: 1)
+=======
+                      blurRadius: 2, color: Colors.black12, spreadRadius: 2)
+>>>>>>> Stashed changes
                 ],
               ),
               child: CircleAvatar(
@@ -340,7 +397,13 @@ class Produtos extends StatelessWidget {
       required this.imageProduto});
 
   final String nomeDoProduto;
+<<<<<<< Updated upstream
   final String preco;
+=======
+
+  final String preco;
+
+>>>>>>> Stashed changes
   final String imageProduto;
 
   @override
@@ -389,4 +452,8 @@ class Produtos extends StatelessWidget {
           )),
     );
   }
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes
