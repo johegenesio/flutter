@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Principal extends StatefulWidget {
   const Principal({super.key});
@@ -13,7 +14,6 @@ class _PrincipalState extends State<Principal> {
   //Declração de variáveis
   String titulo = 'Calculadora do Patati e Patatá';
   bool alterarCor = true;
-
   Color appCor1 = Colors.blue.shade600;
   Color appCor2 = Colors.blue.shade800;
   Color appCor3 = Colors.yellow;
@@ -21,14 +21,53 @@ class _PrincipalState extends State<Principal> {
   Color cores = Colors.white;
   String get img1 => 'assets/Patati_Patata.jpg';
   String get img2 => 'assets/Patati-Patata.jpg';
-  int num1 = Random().nextInt(100) + 1;
-  int num2 = Random().nextInt(100) + 1;
-  int num3 = Random().nextInt(4);
-   soma(int a, int b) {
-    int r = a + b;
+  int _num1 = 0;
+  int _num2 = 0;
+  final Random _random = Random();
+  String _operador = '';
+  final TextEditingController _controller = TextEditingController();
+  String _resultado = '';
+
+  void _gerarConta() {
+    setState(() {
+      _num1 = _random.nextInt(100) + 1;
+      _num2 = _random.nextInt(100) + 1;
+      _operador = ['+', '-', 'x', '/'][_random.nextInt(4)];
+      _resultado = '';
+      _controller.clear();
+    });
   }
 
-  String operatorRandom = '';
+  void _verificarResultado() {
+    double? resultadoEsperado;
+    double? resultadoUsuario = double.tryParse(_controller.text);
+
+    switch (_operador) {
+      case '+':
+        resultadoEsperado = _num1 + _num2.toDouble();
+        break;
+      case '-':
+        resultadoEsperado = _num1 - _num2.toDouble();
+        break;
+      case 'x':
+        resultadoEsperado = _num1 * _num2.toDouble();
+        break;
+      case '/':
+        resultadoEsperado = _num2 != 0 ? _num1 / _num2.toDouble() : null;
+        break;
+    }
+
+    resultadoEsperado = resultadoEsperado != null ? double.parse(resultadoEsperado.toStringAsFixed(2)) : null;
+    resultadoUsuario = resultadoUsuario != null ? double.parse(resultadoUsuario.toStringAsFixed(2)) : null;
+
+    setState(() {
+      if (resultadoUsuario == resultadoEsperado) {
+        _resultado = 'Você acertou!';
+      } else {
+        _resultado = 'Você errou. Tente novamente.';
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,9 +113,69 @@ class _PrincipalState extends State<Principal> {
       body: Center(
         child: Column(
           children: [
-            const Text('Calculadora do Patati e Patatá'),
             Row(
-              children: [Text('$num1'), Text('$operatorRandom'), Text('$num2')],
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: EdgeInsets.all(16.0),
+                  child: Text(
+                    '$_num1',
+                    style: TextStyle(fontSize: 24),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(16.0),
+                  child: Text(
+                    _operador,
+                    style: TextStyle(fontSize: 24),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(16.0),
+                  child: Text(
+                    '$_num2',
+                    style: TextStyle(fontSize: 24),
+                  ),
+                ),
+              ],
+            ),
+            Container(
+              padding: EdgeInsets.all(16.0),
+              child: TextField(
+                controller: _controller,
+                decoration: InputDecoration(
+                  hintText: 'Digite o resultado',
+                  contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                ),
+                keyboardType: TextInputType.number,
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\-?\d*\.?\d*'))],
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: _verificarResultado,
+                  child: Text('Prova'),
+                ),
+                SizedBox(
+                  width: 16,
+                ),
+                ElevatedButton(
+                  onPressed: _gerarConta,
+                  child: Text('Gerar conta'),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 12,
+            ),
+            Text(
+              _resultado,
+              style: TextStyle(fontSize: 18),
+            ),
+            SizedBox(
+              height: 12,
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
